@@ -24,25 +24,25 @@
       <ion-item-divider color="light">Personal</ion-item-divider>
       <ion-item>
         <ion-label>Full Name</ion-label>
-        <ion-input [(ngModel)]="user.displayName" type="text"></ion-input>
+        <ion-input placeholder="edit" [(ngModel)]="user.displayName" type="text"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Gender</ion-label>
-        <ion-select interface="action-sheet" [(ngModel)]="user.gender">
+        <ion-select placeholder="edit" interface="action-sheet" [(ngModel)]="user.gender">
           <ion-option value="Male">Male</ion-option>
           <ion-option value="Female">Female</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>Relationship</ion-label>
-        <ion-select interface="action-sheet" [(ngModel)]="user.relationship">
+        <ion-select placeholder="edit" interface="action-sheet" [(ngModel)]="user.relationship">
           <ion-option value="Single">Single</ion-option>
           <ion-option value="In Relationship">In Relationship</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>Birthday</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="user.birthday"></ion-datetime>
+        <ion-datetime placeholder="09/14/2017" displayFormat="MM/DD/YYYY" [(ngModel)]="user.birthday"></ion-datetime>
       </ion-item>
     </ion-item-group>
     <ion-item-group>
@@ -50,7 +50,7 @@
       <ion-item>
   
         <ion-label>Income</ion-label>
-        <ion-select interface="action-sheet" [(ngModel)]="user.income">
+        <ion-select placeholder="edit" interface="action-sheet" [(ngModel)]="user.income">
           <ion-option value="<25">
             < 25,000</ion-option>
               <ion-option value="25-45"> 25,001 - 45,000</ion-option>
@@ -62,7 +62,7 @@
       </ion-item>
       <ion-item>
         <ion-label>Education</ion-label>
-        <ion-select interface="action-sheet" [(ngModel)]="user.education">
+        <ion-select placeholder="edit" interface="action-sheet" [(ngModel)]="user.education">
           <ion-option value="High School">High School</ion-option>
           <ion-option value="Some College"> Some College</ion-option>
           <ion-option value="Associates"> Associate</ion-option>
@@ -73,30 +73,30 @@
       </ion-item>
       <ion-item>
         <ion-label>Job</ion-label>
-        <ion-input [(ngModel)]="user.job" type="text"></ion-input>
+        <ion-input placeholder="edit" [(ngModel)]="user.job" type="text"></ion-input>
       </ion-item>
     </ion-item-group>
     <ion-item-group>
       <ion-item-divider color="light">Social</ion-item-divider>
-      <ion-item>
+      <ion-item text-wrap>
         <ion-label>Facebook</ion-label>
-        <ion-input [(ngModel)]="user.facebook" type="text"></ion-input>
+        <ion-input placeholder="edit" [(ngModel)]="user.facebook" type="text"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Instagram</ion-label>
-        <ion-input [(ngModel)]="user.instagram" type="text"></ion-input>
+        <ion-input placeholder="edit" [(ngModel)]="user.instagram" type="text"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Snapchat</ion-label>
-        <ion-input [(ngModel)]="user.snapchat" type="text"></ion-input>
+        <ion-input placeholder="edit" [(ngModel)]="user.snapchat" type="text"></ion-input>
       </ion-item>
       <ion-item>
           <ion-label>Twitter</ion-label>
-          <ion-input [(ngModel)]="user.twitter" type="text"></ion-input>
+          <ion-input placeholder="edit" [(ngModel)]="user.twitter" type="text"></ion-input>
         </ion-item>
       <ion-item>
         <ion-label>LinkedIn</ion-label>
-        <ion-input [(ngModel)]="user.linkedin" type="text"></ion-input>
+        <ion-input placeholder="edit" placeholder="edit" [(ngModel)]="user.linkedin" type="text"></ion-input>
       </ion-item>
     </ion-item-group>
   

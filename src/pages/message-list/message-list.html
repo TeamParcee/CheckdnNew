@@ -1,22 +1,35 @@
 <ion-header>
+    <ion-navbar>
 
-  <ion-navbar>
-    <ion-title>Messages</ion-title>
-  </ion-navbar>
+      <ion-title>Messages</ion-title>
+    </ion-navbar>
+  </ion-header>
+<ion-content>
+  <div>
+     <ion-list no-lines no-border="">
+       <ion-item-sliding   *ngFor="let message of messages" tappable >
+          <ion-item (click)="messagePage(message.user, message.mid)">
+              <ion-avatar item-start>
+                <img src="{{message.user.photoURL}}" >
+                <div id="online"></div>
+              </ion-avatar>
+              <h2>{{ message.user.displayName}}</h2>
+              <p text-nowrap>{{ message.text}}</p>
+              <span item-end="" class="right_side">
+              <p>{{message.timestamp | date:'shortTime'}}</p>
+              <ion-badge *ngIf="message.new" color="secondary">1</ion-badge>
+              </span>
+          </ion-item>
+          <ion-item-options side="right">
+              <button (click)="delete(message)" tappable ion-button color="danger">
+                Delete
+              </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+  
+  
+   
+  </div>
 
-</ion-header>
-
-
-<ion-content padding>
-  <ion-list>
-
-    <button ion-item>
-      <ion-avatar item-start>
-        <img src="">
-      </ion-avatar>
-      <h2>Brianne Gerron</h2>
-      <p>Goodnight Babe</p>
-      <p item-end>9:55 PM</p>
-    </button>
-  </ion-list>
 </ion-content>

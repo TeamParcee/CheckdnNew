@@ -59,7 +59,8 @@ import { ImagePicker } from '@ionic-native/image-picker';
     LocationProvider,
     StorageProvider,
     ToastProvider,
-    ImagePicker
+    ImagePicker,
+    LocationProvider
   ]
 })
 export class AppModule {}

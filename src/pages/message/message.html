@@ -1,0 +1,57 @@
+<ion-header mode="md">
+
+    <ion-toolbar color="completelight">
+      <ion-buttons left="" style="margin-left: 6px;position: absolute" tappable (click)="back()">
+        <button ion-button="" icon-only="">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title mode="ios" >
+        <img src="{{recipient?.photoURL}}">
+        {{ recipient?.displayName}}
+      </ion-title>
+    </ion-toolbar>
+  
+  </ion-header>
+  
+  <ion-content padding >
+    <!-- <ion-list no-lines>
+      <ion-item class="{{getOwner(message)}}" *ngFor="let message of messages">
+          <span class="{{getCss(message)}}">{{message?.text}}</span>
+          <p>{{message?.timestamp | FromNow}}</p>
+      </ion-item>
+    </ion-list> -->
+    <ion-list no-lines [virtualScroll]="messages" [headerFn]="messagesHeaderFn">
+
+         <p style="font-weight: lighter" *virtualHeader="let header">
+          {{ header }}
+        </p> 
+      
+          <ion-item  *virtualItem="let message">
+              <span  class="{{getOwner(message)}}">
+              <span class="{{getCss(message)}}" >{{message?.text}}</span>
+            </span>
+          </ion-item>
+      
+        
+      </ion-list>
+  
+  </ion-content>
+
+    <ion-footer   no-border="" mode="md">
+        <div class="reply_input">
+              <div class="input_area">
+                <ion-textarea [(ngModel)]="text" no-margin placeholder="Send message" (input)="changetextarea()" id="messageInputBox"></ion-textarea>
+          
+                <div class="right_arrow"></div>
+              </div>
+              <button tappable (click)="sendMessage()" ion-button>
+                <ion-icon name="ios-send"></ion-icon>
+              </button>
+            </div>
+          
+      </ion-footer> 
+  
+  
+  
+  

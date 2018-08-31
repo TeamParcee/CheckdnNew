@@ -40,4 +40,7 @@ export class ViewProfilePage {
       console.log(this.pics);
     })
   }
+  messagePage() {
+    this.navCtrl.push('MessagePage', {recipient: this.profileUser});
+  }
 }

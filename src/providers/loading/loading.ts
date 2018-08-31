@@ -16,6 +16,8 @@ export class LoadingProvider {
     this.loading.present()
   }
   hide(){
-    this.loading.dismiss()
+    this.loading.dismiss().catch((e)=>{
+      console.log(e)
+    })
   }
 }

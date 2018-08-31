@@ -11,12 +11,21 @@
 </ion-header>
 
 <ion-content>
-    <ion-item-group>
-      <ion-item-divider color="light">A</ion-item-divider>
-      <ion-item>
-        Adiontae Gerron
-        <p>Checked into: Blue Cross Blue Shield</p>
-      </ion-item>
-      <ion-item>Argentina</ion-item>
-    </ion-item-group>
-  </ion-content>
+    <p padding *ngIf="!contacts.length && !pendingContacts.length && !waitingApproval.length" style="font-size: 20px" text-center>
+        You currently dont have any contacts.<br> <span style="font-weight:lighter">Add a contact to see their Checkdn location. </span><br>
+        <ion-icon color="primary" style="font-size: 80px" name="sad"></ion-icon><br>
+        <button block float-right clear ion-button icon-only tappable (click)="newContact()">
+            Add Contact
+        </button>
+      </p>
+    <ion-list *ngIf="contacts" [virtualScroll]="contacts" [headerFn]="contactsHeaderFn">
+
+        <ion-item-divider *virtualHeader="let header">
+          {{ header }}
+        </ion-item-divider>
+      
+        <ion-item *virtualItem="let contact">
+          {{ contact }}
+        </ion-item>
+      </ion-list>
+</ion-content>

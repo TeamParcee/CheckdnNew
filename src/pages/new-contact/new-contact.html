@@ -1,13 +1,24 @@
-
 <ion-header>
 
   <ion-navbar>
+    <ion-buttons start>
+      <button navPop ion-button>
+        Close
+      </button>
+    </ion-buttons>
     <ion-title>New Contact</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
+
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item (click)="confirmAddContact(user)" *ngFor="let user of users">
+      <h2> {{ user.displayName }} </h2>
+    </ion-item>
+  </ion-list>
 </ion-content>

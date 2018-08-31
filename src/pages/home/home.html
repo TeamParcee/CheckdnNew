@@ -1,16 +1,30 @@
 <ion-header>
   <ion-navbar>
+      <ion-buttons start>
+          <button (click)="changeCheckdnPage()" clear ion-button icon-only>
+            <ion-icon name="pin"></ion-icon>
+          </button>
+        </ion-buttons>
     <ion-title>
+    {{user?.checkdn?.name}}
     </ion-title>
+    <ion-buttons end>
+        <button (click)="checkdnChatPage()" clear ion-button icon-only>
+          <ion-icon name="chatbubbles"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-row>
     <ion-col (click)="viewProfilePage(user)" *ngFor="let user of users" col-4>
-      <img src="{{user.photoURL}}">
-      <p text-center>{{user.displayName}}</p>
+      <ion-card>
+        <img src="{{user.photoURL}}">
+        <p text-center>{{user.displayName}}</p>
+      </ion-card>
     </ion-col>
+
   </ion-row>
 
 </ion-content>

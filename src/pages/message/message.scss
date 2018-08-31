@@ -1,0 +1,93 @@
+page-message {
+    .toolbar-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: capitalize;
+      overflow: visible;
+      img {
+        width: 25px;
+        height: 25px;
+        border-radius: 100%;
+        margin-right: 8px;
+      }
+    }
+    ion-content{
+      background-color: white !important;
+  }
+    .reply_input {
+      bottom: 0;
+      width: 100%;
+      float: left;
+      display: flex;
+      background-color: #e8e8e8;
+      .input_area {
+        position: relative;
+        flex: 1;
+        padding: 8px;
+        textarea {
+          flex: 1;
+          font-size: 15px;
+          float: left;
+          height: 50px;
+          border: 0;
+          border-radius: 4px;
+          border-top-right-radius: 0;
+          position: relative;
+          width: 100%;
+          padding: 4px;
+          background-color: #fff;
+        }
+        .right_arrow {
+          width: 0;
+          height: 0;
+          border-top: 0 solid transparent;
+          border-bottom: 17px solid transparent;
+          border-left: 17px solid #fff;
+          position: absolute;
+          right: -8px;
+          top: 8px;
+        }
+      }
+      button.button {
+        font-size: 16px;
+        min-height: 0;
+        text-transform: capitalize;
+        font-weight: normal;
+        margin: 8px;
+        align-self: flex-end;
+        height: 40px;
+        width: 40px;
+        border-radius: 100%;
+      }
+    }
+
+    .othermsg{
+      background-color: #ebedf0;
+    border-radius: 18px;
+    display: inline-block;
+    line-height: 16px;
+    margin-top: 0;
+    min-width: 0;
+    overflow: hidden;
+    padding: 6px 12px 7px 12px;
+    }
+    .mymsg{
+      background-color: rgb(112, 161, 112);
+      color:#fff;
+    border-radius: 18px;
+    display: inline-block;
+    line-height: 16px;
+    margin-top: 0;
+    min-width: 0;
+    overflow: hidden;
+    padding: 6px 12px 7px 12px;
+    }
+    .othermsgAlign{
+      text-align: left;
+    }
+    .mymsgAlign{
+      text-align: right;
+    }
+  }
+  

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Checkdn Chat</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+
+<!-- Hidden map to use google api -->
+<div style="display:none" #map id="map"></div>
+<ion-list no-lines>
+  <ion-list-header style="background:#f3f3f3">
+   <p>Checkdn to {{user?.checkdn.name}}</p>
+  </ion-list-header>
+  <ion-item *ngFor="let post of feed">
+    <ion-avatar (tap)="messagePage(post.user)" item-left>
+      <img src="{{post.user?.photoURL}}" />
+    </ion-avatar>
+    <p>{{post.user?.displayName}}</p>
+    <span class="post">{{post?.message}}</span>
+    
+  </ion-item>
+</ion-list>
+
+
+</ion-content>
+<ion-fab *ngIf="!showFooter" bottom right>
+<button (click)="showFooter = !showFooter" tappable ion-fab>
+  <ion-icon name="add"></ion-icon>
+</button>
+
+</ion-fab>
+<ion-footer *ngIf="showFooter"  no-border="" mode="md">
+  <div class="reply_input">
+        <div class="input_area">
+          <ion-textarea [(ngModel)]="message" no-margin placeholder="Send message" (input)="changetextarea()" id="messageInputBox"></ion-textarea>
+    
+          <div class="right_arrow"></div>
+        </div>
+        <button  (tap)="post()" ion-button>
+          <ion-icon name="ios-send"></ion-icon>
+        </button>
+        <button color="danger" (click)="showFooter = !showFooter; message = ''" tappable   ion-button>
+            <ion-icon name="close"></ion-icon>
+          </button>
+      </div>
+    
+</ion-footer> 

@@ -10,7 +10,7 @@
 <ion-content>
   <div *ngIf="profileUser">
     <img style="width: 100%; height: 300px" src="{{profileUser.photoURL}}" />
-
+    <button (click)="messagePage()" tappable ion-button clear>Message</button>
     <ion-list>
       <button ion-item>
         <p item-start>Photos</p>
@@ -23,5 +23,56 @@
         </ion-row>
       </button>
     </ion-list>
+    <ion-item>
+      <p item-start>Personal</p>
+      <ion-list style="margin:0; padding: 0" no-lines>
+        <ion-item *ngIf="profileUser.displayName">
+          Full Name <span class="profile-item">{{profileUser.displayName}}</span>
+        </ion-item>
+        <ion-item *ngIf="profileUser.gender">
+          Gender <span class="profile-item">{{profileUser.gender}}</span>
+        </ion-item>
+        <ion-item *ngIf="profileUser.relationship">
+          Relationship <span class="profile-item">{{profileUser.relationship}}</span>
+        </ion-item>
+        <ion-item *ngIf="profileUser.birthday">
+          Birthday <span class="profile-item">{{profileUser.birthday}}</span>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <p item-start>Work</p>
+      <ion-list style="margin:0; padding: 0" no-lines>
+        <ion-item *ngIf="profileUser.income">
+          Income <span class="profile-item">{{profileUser.income}}</span>
+        </ion-item>
+        <ion-item *ngIf="profileUser.education">
+          Education <span class="profile-item">{{profileUser.education}}</span>
+        </ion-item>
+        <ion-item *ngIf="profileUser.job">
+          Job <span class="profile-item">{{profileUser.job}}</span>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <p item-start>Social </p>
+      <ion-list style="margin:0; padding: 0" no-lines>
+        <ion-item *ngIf="profileUser.facebook">
+          Facebook <span class="profile-item">{{profileUser.facebook}}</span>
+        </ion-item>
+        <ion-item *ngIf="profileUser.instagram">
+          Instagram <span class="profile-item">{{profileUser.instagram}}</span>
+        </ion-item>
+        <ion-item *ngIf="profileUser.snapchat">
+          Snapchat <span class="profile-item">{{profileUser.snapchat}}</span>
+        </ion-item>
+        <ion-item *ngIf="profileUser.twitter">
+          Twitter <span class="profile-item">{{profileUser.twitter}}</span>
+        </ion-item>
+        <ion-item *ngIf="profileUser.linkedin">
+          Linkedin <span class="profile-item">{{profileUser.linkedin}}</span>
+        </ion-item>
+      </ion-list>
+    </ion-item>
   </div>
 </ion-content>
