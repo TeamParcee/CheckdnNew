@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-navbar no-border-bottom>
+      <ion-title>
+        Checkdn Locations
+      </ion-title>
+    </ion-navbar>
+  
+    <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="options">
+        <ion-segment-button value="close">
+          Close
+        </ion-segment-button>
+        <ion-segment-button value="far">
+          To Far
+        </ion-segment-button>
+        <ion-segment-button value="all">
+            All
+          </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <div [ngSwitch]="options">
+      <ion-list *ngSwitchCase="'close'">
+        <button  (click)="chatRoomPage()"  ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/img/thumbnail-puppy-1.jpg">
+          </ion-thumbnail>
+          <h2>The Hive</h2>
+        </button>
+      </ion-list>
+  
+      <ion-list *ngSwitchCase="'far'">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/img/thumbnail-kitten-1.jpg">
+          </ion-thumbnail>
+          <h2>Luna</h2>
+        </ion-item>
+      </ion-list>
+  
+      <ion-list *ngSwitchCase="'all'">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/img/thumbnail-duckling-1.jpg">
+          </ion-thumbnail>
+          <h2>Daffy</h2>
+        </ion-item>
+
+      </ion-list>
+    </div>
+  </ion-content>

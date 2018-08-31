@@ -1,0 +1,12 @@
+page-welcome {
+
+    ion-slides{
+        height: 300px;
+    }
+    ion-content{
+        background-color: white !important;
+    }
+    .swiper-pagination-bullet-active {
+        background: #555237;
+    }
+}

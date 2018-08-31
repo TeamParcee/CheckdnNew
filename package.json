@@ -1,8 +1,8 @@
 {
   "name": "Checkdn",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Team Parcee",
+  "homepage": "http://checkdn.xyz/",
   "private": true,
   "scripts": {
     "start": "ionic-app-scripts serve",
@@ -21,18 +21,49 @@
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
     "@ionic-native/core": "~4.12.0",
+    "@ionic-native/image-picker": "^4.12.0",
     "@ionic-native/splash-screen": "~4.12.0",
     "@ionic-native/status-bar": "~4.12.0",
-    "@ionic/storage": "2.1.3",
+    "@ionic/storage": "^2.1.3",
+    "add": "^2.0.6",
+    "browser-image-resizer": "^1.2.0",
+    "cordova": "^8.0.0",
+    "cordova-browser": "5.0.4",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-ionic-keyboard": "^2.1.2",
+    "cordova-plugin-ionic-webview": "^2.1.0",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-telerik-imagepicker": "^2.2.2",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "firebase": "^5.4.1",
+    "ionic": "^4.1.1",
     "ionic-angular": "3.9.2",
+    "ionic-img-viewer": "^2.9.0",
     "ionicons": "3.0.0",
+    "plugin": "^0.3.3",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.2.0",
+    "@ionic/lab": "1.0.8",
     "typescript": "~2.6.2"
   },
-  "description": "An Ionic project"
+  "description": "Checkdn",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-telerik-imagepicker": {
+        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "your usage message"
+      }
+    },
+    "platforms": [
+      "browser"
+    ]
+  }
 }

@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>My Photos</ion-title>
+    <label float-right clear ion-button icon-only tappable for="pic">
+      <ion-icon name="camera"></ion-icon>
+    </label>
+    <input style="display:none" (change)="getPictures($event)" name="pic" id="pic" type="file" multiple>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <p  *ngIf="userPics?.length == 0 && pics?.length == 0 " style="font-size: 20px" text-center>
+    You currently dont have any pictures in your profile file<br>
+    <ion-icon color="primary" style="font-size: 60px" name="sad"></ion-icon><br>
+    <label block float-right clear ion-button icon-only tappable for="pic">
+        Add Pictures
+    </label>
+  </p>
+
+  <ion-list *ngIf="pics?.length != 0">
+    <ion-list-header>Pending Upload</ion-list-header>
+    <ion-row>
+      <ion-col col-4 *ngFor="let pic of pics">
+        <img imageViewer src="{{pic}}">
+      </ion-col>
+    </ion-row>
+    <button (click)="uploadPics()" ion-button clear>Upload</button>
+  </ion-list>
+
+  <ion-list *ngIf="userPics?.length != 0">
+    <ion-list-header>Uploaded Pics
+      <button *ngIf="edit != true" (click)="edit = true" ion-button clear item-end>edit</button>
+      <button *ngIf="edit == true" (click)="edit = false" ion-button clear item-end>done</button>
+    </ion-list-header>
+    <ion-row>
+      <ion-col col-4 *ngFor="let pic of userPics">
+        <img imageViewer src="{{pic.downloadURL}}">
+        <button (click)="confirmDelete(pic.picId)" *ngIf="edit == true" clear icon-only ion-button>
+          <ion-icon color="danger" name="trash"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>

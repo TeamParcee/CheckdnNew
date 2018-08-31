@@ -1,0 +1,63 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Complete Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div *ngIf="user">
+
+    <p text-center>
+      <img height="200" width="200" imageViewer src="{{user.photoURL}}">
+      <br>
+      <label tappable for="pic">Change Photo</label>
+      
+      <input style="display:none" (change)="previewPic($event)" name="pic" id="pic" type="file">
+    </p>
+    <ion-list>
+      <ion-list-header>Profile</ion-list-header>
+      <ion-item>
+        <ion-label stacked>Full Name</ion-label>
+        <ion-input [(ngModel)]="user.displayName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input [(ngModel)]="user.email"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list radio-group [(ngModel)]="user.gender">
+      <ion-list-header>Gender</ion-list-header>
+      <ion-item>
+        <ion-label>Male</ion-label>
+        <ion-radio value="Male"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Female</ion-label>
+        <ion-radio value="Female"></ion-radio>
+      </ion-item>
+    </ion-list>
+
+    <ion-list radio-group [(ngModel)]="user.relationship">
+      <ion-list-header>Relationship Status</ion-list-header>
+      <ion-item>
+        <ion-label>Relationship</ion-label>
+        <ion-radio value="In Relationship"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Single</ion-label>
+        <ion-radio value="Single"></ion-radio>
+      </ion-item>
+    </ion-list>
+
+    <button (click)="save()" block ion-button clear [disabled]="!user.relationship || !user.displayName || !user.email || !user.gender || user.relationshipt">
+      Save
+    </button>
+  </div>
+
+
+</ion-content>

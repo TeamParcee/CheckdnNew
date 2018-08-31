@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list *ngIf="user">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="{{user.photoURL}}" />
+      </ion-thumbnail>
+      <h2>{{user.displayName}}</h2>
+    </ion-item>
+    <button ion-item (click)="profilePhotosPage()">
+        <ion-icon item-start name="albums"></ion-icon>
+      <h2>Pictures: {{pics}}</h2>
+    </button>
+
+    <button ion-item (click)="editProfilePage()">
+        <ion-icon item-start name="body"></ion-icon>
+      <h2>Profile</h2>
+    </button>
+    <button ion-item (click)="settingsPage()">
+        <ion-icon item-start name="settings"></ion-icon>
+      <h2>Settings</h2>
+    </button>
+    <ion-item (click)="logOut()">
+      <ion-icon item-start name="log-out"></ion-icon>
+        <h2>Log Off</h2>
+      </ion-item>
+  </ion-list>
+</ion-content>

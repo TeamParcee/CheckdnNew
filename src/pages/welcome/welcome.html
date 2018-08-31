@@ -1,0 +1,33 @@
+
+<ion-content padding>
+    <div style="margin-top: 10px" text-center>
+        <h1 style="color: #555273; font-size: 70px">Checkdn</h1>
+      </div>
+<ion-slides pager>
+    <ion-slide >
+        
+        <img src="../../assets/icon/bar (1).png" />
+        <p>Check in at the bar you are at <br> (or nearby ones)</p>
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/icon/user-connection.png" />
+        <p>See other people who <br>are checked in there</p>
+      </ion-slide>
+      <ion-slide>
+      <img src="../../assets/icon/group.png" />
+      <p>Post in the group chat <br> or send direct messages</p>
+    </ion-slide>
+
+</ion-slides>
+<div style="margin-top: 20px" padding>
+    <button (click)="signinAnonymously()" tappable icon-start ion-button block>
+        <ion-icon  name="person"></ion-icon>
+        Login Anonymously
+      </button>
+      <button (tap)="facebookLogin()" style="background: #3b5998" icon-start ion-button block>
+        <ion-icon  name="logo-facebook"></ion-icon>
+        Login with Facebook
+      </button>
+    </div>
+    <p text-center>Version 1.0.0</p>
+</ion-content>
