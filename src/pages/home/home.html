@@ -19,12 +19,9 @@
 <ion-content>
   <ion-row>
     <ion-col (click)="viewProfilePage(user)" *ngFor="let user of users" col-4>
-      <ion-card>
         <img src="{{user.photoURL}}">
         <p text-center>{{user.displayName}}</p>
-      </ion-card>
     </ion-col>
-
   </ion-row>
 
 </ion-content>
