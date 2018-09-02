@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Create Account</ion-title>
+    <ion-title>Welcome Back</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -10,10 +10,7 @@
 <ion-content>
 
   <ion-list padding no-lines margin-top>
-    <ion-item>
-      <ion-label  stacked>Full Name</ion-label>
-      <ion-input [(ngModel)]="displayName"></ion-input>
-    </ion-item>
+
     <ion-item>
       <ion-label stacked>Email</ion-label>
       <ion-input type="email" [(ngModel)]="email"></ion-input>
@@ -24,7 +21,6 @@
     </ion-item>
   </ion-list>
   <div padding>
-    <button [disabled]="!displayName || !email || !password"  block ion-button (click)="create()">Create Account</button>
+    <button [disabled]="!email || !password"  block ion-button (click)="create()">Login</button>
   </div>
-  <p text-center>By creating an account you agree to Checkdn's <b>Terms and Conditions</b></p>
 </ion-content>
