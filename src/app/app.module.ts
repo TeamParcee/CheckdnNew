@@ -42,6 +42,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
     IonicImageViewerModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp, {
+      mode: "ios"
     })
   ],
   bootstrap: [IonicApp],

@@ -1,7 +1,7 @@
 
 <ion-content padding>
     <div style="margin-top: 10px" text-center>
-        <h1 style="color: #555273; font-size: 70px">Checkdn</h1>
+        <h1 style="color: #510085; font-size: 70px">Checkdn</h1>
       </div>
 <ion-slides pager>
     <ion-slide >
@@ -20,10 +20,10 @@
 
 </ion-slides>
 <div style="margin-top: 20px" padding>
-    <!-- <button (click)="signinAnonymously()" tappable icon-start ion-button block>
-        <ion-icon  name="person"></ion-icon>
-        Login Anonymously
-      </button> -->
+    <button navPush="CreateAccountPage"  icon-start ion-button block>
+        <ion-icon  name="mail"></ion-icon>
+        Create Account
+      </button>
       <button (tap)="facebookLogin()" style="background: #3b5998" icon-start ion-button block>
         <ion-icon  name="logo-facebook"></ion-icon>
         Login with Facebook

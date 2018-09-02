@@ -1,9 +1,9 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar class="ios-toolbar">
     <ion-title>My Photos</ion-title>
     <label float-right clear ion-button icon-only tappable for="pic">
-      <ion-icon name="camera"></ion-icon>
+      <ion-icon style="color: white" name="camera"></ion-icon>
     </label>
     <input style="display:none" (change)="getPictures($event)" name="pic" id="pic" type="file" multiple>
   </ion-navbar>

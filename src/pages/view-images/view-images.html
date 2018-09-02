@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>View Images</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-grid>
+  <ion-row>
+    <ion-col *ngFor="let image of images" col-4>
+      <img imageViewer src="{{image.downloadURL}}" />
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

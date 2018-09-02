@@ -43,4 +43,7 @@ export class ViewProfilePage {
   messagePage() {
     this.navCtrl.push('MessagePage', {recipient: this.profileUser});
   }
+  viewImagesPage(){
+    this.navCtrl.push('ViewImagesPage', {user: this.profileUser});
+  }
 }
