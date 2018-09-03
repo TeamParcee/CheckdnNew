@@ -25,7 +25,6 @@ export class LoginPage {
 
   create(){
     firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(()=>{
-        this.navCtrl.pop();
     }).catch((e)=>{
       this.toast.show(e.message);
     })

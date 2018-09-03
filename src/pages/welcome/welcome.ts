@@ -7,6 +7,7 @@ import { FirestoreProvider } from '../../providers/firestore/firestore';
 import { Storage } from '@ionic/storage';
 import { LocationProvider } from '../../providers/location/location';
 import { LoadingProvider } from '../../providers/loading/loading';
+// import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 
 @IonicPage()
 @Component({
@@ -17,7 +18,8 @@ import { LoadingProvider } from '../../providers/loading/loading';
 export class WelcomePage {
 
   constructor(
-    private loading: LoadingProvider,
+    // private fb: Facebook,
+    // private loading: LoadingProvider,
     private location: LocationProvider,
     private ls: Storage,
     private fs: FirestoreProvider,
@@ -32,7 +34,7 @@ export class WelcomePage {
   checkdnPlaces;
 
   async ionViewDidLoad() {
-    this.loading.show();
+    // this.loading.show();
     this.allPlaces = await this.fs.getCollection("checkPlaces");
     this.checkdnPlaces = await this.getCheckdnPlaces();
 
@@ -41,16 +43,16 @@ export class WelcomePage {
         let user: any = await this.getFireStoreUser(user_auth);
         this.ls.set("user", user);
         if (!user.displayName || !user.email || !user.gender || !user.relationship || !user.photoURL) {
-          this.loading.hide();
+          // this.loading.hide();
           this.navCtrl.setRoot("CompleteProfilePage")
         }
         else {
-          this.loading.hide();
+          // this.loading.hide();
           this.navCtrl.setRoot("TabsPage")
         }
       }
     })
-    this.loading.hide()
+    // this.loading.hide()
   }
 
 
@@ -88,9 +90,12 @@ export class WelcomePage {
     })
 
   }
-  facebookLogin() {
-    this.auth.loginWithFB();
-  }
+  // facebookLogin() {
+  //   this.fb.login(['public_profile', 'user_friends', 'email'])
+  //   .then((res)=>{
+  //     console.log(res)
+  //   })
+  // }
 
   async getCheckdnPlaces() {
     return new Promise(async (resolve) => {

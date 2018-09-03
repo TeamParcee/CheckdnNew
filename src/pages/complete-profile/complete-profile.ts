@@ -27,7 +27,6 @@ export class CompleteProfilePage {
   save(){
     this.ls.set("user", this.user);
     this.fs.updateDocument("users", this.user.uid, this.user);
-    console.log(this.user)
     this.navCtrl.setRoot("TabsPage")
   }
 

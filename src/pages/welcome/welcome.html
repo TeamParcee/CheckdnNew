@@ -1,9 +1,9 @@
 
 <ion-content padding>
-    <div style="margin-top: 10px" text-center>
-        <h1 style="color: #510085; font-size: 70px">Checkdn</h1>
+    <div style="margin-top: 200px" text-center>
+        <h1 style="color: #ffffff; font-size: 70px">Checkdn</h1>
       </div>
-<ion-slides pager>
+<!-- <ion-slides pager>
     <ion-slide >
         
         <img src="../../assets/icon/bar (1).png" />
@@ -18,17 +18,20 @@
       <p>Post in the group chat <br> or send direct messages</p>
     </ion-slide>
 
-</ion-slides>
+</ion-slides> -->
 <div style="margin-top: 20px" padding>
-    <button navPush="CreateAccountPage"  icon-start ion-button block>
+    <button  navPush="CreateAccountPage"  icon-start ion-button block>
         <ion-icon  name="mail"></ion-icon>
         Create Account
       </button>
-      <button (tap)="facebookLogin()" style="background: #3b5998" icon-start ion-button block>
+      <button icon-start ion-button navPush="LoginPage" block >
+          <ion-icon  name="log-in"></ion-icon>
+        Login</button>
+      <!-- <button (tap)="facebookLogin()" style="background: #3b5998" icon-start ion-button block>
         <ion-icon  name="logo-facebook"></ion-icon>
         Login with Facebook
-      </button>
+      </button> -->
     </div>
-    <button ion-button navPush="LoginPage" block clear>Already have an account?</button>
-    <p text-center>Version 1.0.0</p>
+    
+    <p style="color: white" text-center>Version 1.0.0</p>
 </ion-content>

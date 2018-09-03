@@ -15,7 +15,7 @@ import { LocationProvider } from '../providers/location/location';
 import { StorageProvider } from '../providers/storage/storage';
 import { ToastProvider } from '../providers/toast/toast';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
-
+import { Facebook } from '@ionic-native/facebook';
 
 //cordova 
 import { ImagePicker } from '@ionic-native/image-picker';
@@ -57,11 +57,11 @@ import { ImagePicker } from '@ionic-native/image-picker';
     FirestoreProvider,
     DatabaseProvider,
     LoadingProvider,
-    LocationProvider,
     StorageProvider,
     ToastProvider,
     ImagePicker,
-    LocationProvider
+    LocationProvider,
+    Facebook,
   ]
 })
 export class AppModule {}

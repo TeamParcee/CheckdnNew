@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as firebase from 'firebase';
@@ -12,6 +13,7 @@ import { ToastProvider } from '../../providers/toast/toast';
 export class CreateAccountPage {
 
   constructor(
+    private ls: Storage,
     private toast: ToastProvider,
     public navCtrl: NavController, 
     public navParams: NavParams) {
@@ -26,14 +28,8 @@ export class CreateAccountPage {
   }
 
   create(){
-    firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then((user: firebase.User)=>{
-      user.updateProfile({
-        displayName: this.displayName,
-        photoURL: "../../assets/imgs/photo_anonymous.png"
-      }).then(()=>{
+    firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(()=>{
         this.toast.show("Account created successfully");
-        this.navCtrl.pop()
-      })
     }).catch((e)=>{
       this.toast.show(e.message);
     })
