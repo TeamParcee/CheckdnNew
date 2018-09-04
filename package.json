@@ -42,6 +42,7 @@
     "cordova-plugin-telerik-imagepicker": "^2.2.2",
     "cordova-plugin-whitelist": "^1.3.3",
     "firebase": "^4.12.1",
+    "ionic2-super-tabs": "^4.3.0",
     "info.protonet.imageresizer": "^0.1.1",
     "ionic": "^4.1.1",
     "ionic-angular": "3.9.2",

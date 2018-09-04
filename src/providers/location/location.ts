@@ -36,14 +36,13 @@ export class LocationProvider {
     })
   }
 
-  async getDistanceMatrix(checkdnPlaces2){
+  async getDistanceMatrix(checkdnPlaces){
     let userLocation:any = await this.getCurrentLocation();
     let userLatLng = await new google.maps.LatLng(userLocation.lat, userLocation.lng)
     let origins = []
     let placesLocation = [];
 
 
-    let checkdnPlaces:any = await this.getObjsClose();
     var half_length = Math.ceil(checkdnPlaces.length / 2);    
     checkdnPlaces = checkdnPlaces.splice(0,half_length);
 
@@ -87,54 +86,39 @@ export class LocationProvider {
         }
         
     }
-      // nearPlaces.push(that.checkdnPlaces);
-        nearPlaces.push(that.defaultCheckdn);
-        nearPlaces.push(that.defaultCheckdn2);
+        nearPlaces.push(that.defaultPlace);
+        nearPlaces.push(that.defaultPlace2);
         return resolve(nearPlaces)
      }
     })
   
   }
 
-  async getObjsClose(){
-    let currentLocation = await this.getCurrentLocation();
-    let map = new google.maps.Map(document.getElementById('map'), {
-      center: currentLocation,
-      zoom: 20
-    });
-  
-    let service =   new google.maps.places.PlacesService(map);
-    return new Promise((res)=>{
-      service.nearbySearch({
-        location: currentLocation,
-        // radius: '10',
-        rankBy: google.maps.places.RankBy.DISTANCE,
-        type: 'school',
-      }, (response:any[])=>{
-        let objs = [];
-        response.forEach((obj)=>{
-          let o = {
-            name: obj.name,
-            address: obj.vicinity,
-            placeid: obj.place_id,
-          }
-          objs.push(o);
+  getCheckdnPlaces(){
+    return new Promise((resolve)=>{
+     return firebase.firestore().collection("checkdnPlaces").get().then(async(checkdnPlaceSnap)=>{
+        let places = []
+        checkdnPlaceSnap.forEach((place)=>{
+          places.push(place.data())
         })
-        return res(objs);
+        let checkdnPlaces = await this.getDistanceMatrix(places);
+        return resolve(checkdnPlaces)
       })
     })
+    
   }
- 
-  defaultCheckdn =   {
-    name: "Checkdn Support",
-    address: "Checkdn HQ", 
-    placeid: "666",
-}
-defaultCheckdn2 =   {
-  name: "Checkdn Support 2",
-  address: "Checkdn HQ", 
-  placeid: "6667",
-}
-
-
+ defaultPlace = 
+    {
+      name: "Checkdn Support",
+      address: "Checkdn HQ", 
+      placeid: "666"
+    }
+  
+  defaultPlace2 = 
+    {
+      name: "Checkdn Support",
+      address: "Checkdn HQ", 
+      placeid: "777"
+    }
+  
 }

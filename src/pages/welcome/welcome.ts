@@ -72,16 +72,17 @@ export class WelcomePage {
           pics: [],
           relationship: "",
           uid: fire_user.uid,
-          checkdnPlaces: this.checkdnPlaces,
-          checkdn: this.checkdnPlaces[0],
+          checkdnPlaces: (this.checkdnPlaces) ? this.checkdnPlaces : [],
+          checkdn: "",
           online: true,
           contacts: []
         }
         this.fs.setDocument("users", fire_user.uid, user)
       } else {
         let update = {
-          checkdnPlaces: this.checkdnPlaces,
-          checkdn: this.checkdnPlaces[0]
+          checkdnPlaces: (this.checkdnPlaces) ? this.checkdnPlaces : [],
+          checkdn: "",
+
         }
         this.fs.updateDocument("users/", fire_user.uid, update);
         user = await this.fs.getDocument("users", fire_user.uid);
@@ -90,12 +91,7 @@ export class WelcomePage {
     })
 
   }
-  // facebookLogin() {
-  //   this.fb.login(['public_profile', 'user_friends', 'email'])
-  //   .then((res)=>{
-  //     console.log(res)
-  //   })
-  // }
+
 
  
 createAccount(){

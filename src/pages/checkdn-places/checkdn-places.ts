@@ -23,14 +23,12 @@ export class CheckdnPlacesPage {
   user;
   checkdn;
   async ionViewDidLoad() {
-    console.log('ionViewDidLoad CheckdnUsersPage');
-    await this.getUser();
-    this.places = await this.navParams.get('places');
-    this.checkdn = await this.navParams.get('checkdn');
-  }
-  async getUser(){
     this.user = await this.ls.get('user');
+    this.places = this.user.checkdnPlaces;
+    this.checkdn = this.user.checkdn;
+    console.log(this.user)
   }
+
   changeCheckdn(place){
     this.fs.updateDocument("users", this.user.uid, {checkdn: place})
   }

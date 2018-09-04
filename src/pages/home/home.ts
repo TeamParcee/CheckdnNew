@@ -81,7 +81,10 @@ async updateCheckdnLocation(){
   let fsUser = await this.fs.getDocument("users", this.user.uid);
   this.user.checkdn = fsUser.checkdn;
 
+  if(this.user.checkdn){
     this.getUsers();
+  }
+    
 
   }
 }

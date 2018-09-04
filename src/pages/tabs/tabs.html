@@ -1,5 +1,7 @@
-<ion-tabs>
-  <ion-tab [root]="'HomePage'" tabIcon="people"></ion-tab>
-  <ion-tab [root]="'MessageListPage'" [tabBadge]="newCount > 0 ? newCount : null" tabBadgeStyle="danger" tabIcon="mail"></ion-tab>
-  <ion-tab [root]="'ProfilePage'" tabIcon="contact"></ion-tab>
-</ion-tabs>
+<super-tabs style="color: #510085" color="primary" mode="md" >
+  <super-tab [root]="'HomePage'" icon="people"></super-tab>
+  <super-tab [root]="'CheckdnChatPage'" icon="chatbubbles"></super-tab>
+  <!-- <super-tab [root]="'MessageListPage'" [tabBadge]="newCount > 0 ? newCount : null" tabBadgeStyle="danger" tabIcon="mail"></super-tab> -->
+  <super-tab [root]="'CheckdnPlacesPage'" icon="pin"></super-tab>
+  <super-tab [root]="'ProfilePage'" icon="contact"></super-tab>
+</super-tabs>
