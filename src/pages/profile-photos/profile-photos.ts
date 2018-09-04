@@ -5,6 +5,7 @@ import 'firebase/firestore';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
 import { LoadingProvider } from '../../providers/loading/loading';
 import { Storage } from '@ionic/storage';
+import { ImageResizerProvider } from '../../providers/image-resizer/image-resizer';
 @IonicPage()
 @Component({
   selector: 'page-profile-photos',
@@ -13,6 +14,7 @@ import { Storage } from '@ionic/storage';
 export class ProfilePhotosPage {
 
   constructor(
+    private imageResizer: ImageResizerProvider,
     private alert: AlertController,
     private ls: Storage,
     private loading: LoadingController,
@@ -47,13 +49,15 @@ export class ProfilePhotosPage {
     let uploadedPics = event.target.files;
     let pics = [];
     let imageFiles = [];
+    let that = this;
     for (var i = 0; i < uploadedPics.length; i++) {
       imageFiles.push(uploadedPics[i]);
       let reader = new FileReader;
       reader.onloadend = function () {
-      pics.push(reader.result)
+      // pics.push(reader.result)
+        that.imageResizer.resize(reader.result);
     }
-    reader.readAsDataURL(uploadedPics[i])
+    // reader.readAsDataURL(uploadedPics[i])
   }
   this.pics = pics;
   this.imageFiles = imageFiles;

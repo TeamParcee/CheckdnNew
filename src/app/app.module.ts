@@ -19,6 +19,9 @@ import { Facebook } from '@ionic-native/facebook';
 
 //cordova 
 import { ImagePicker } from '@ionic-native/image-picker';
+import { ImageResizerProvider } from '../providers/image-resizer/image-resizer';
+import { ImageResizer } from '@ionic-native/image-resizer';
+
 
   // Initialize Firebase
   var config = {
@@ -62,6 +65,8 @@ import { ImagePicker } from '@ionic-native/image-picker';
     ImagePicker,
     LocationProvider,
     Facebook,
+    ImageResizer,
+    ImageResizerProvider,
   ]
 })
 export class AppModule {}

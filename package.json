@@ -23,6 +23,7 @@
     "@ionic-native/core": "~4.12.0",
     "@ionic-native/facebook": "^4.12.2",
     "@ionic-native/image-picker": "^4.12.0",
+    "@ionic-native/image-resizer": "^4.12.2",
     "@ionic-native/splash-screen": "~4.12.0",
     "@ionic-native/status-bar": "~4.12.0",
     "@ionic/storage": "^2.1.3",
@@ -39,6 +40,7 @@
     "cordova-plugin-telerik-imagepicker": "^2.2.2",
     "cordova-plugin-whitelist": "^1.3.3",
     "firebase": "^4.12.1",
+    "info.protonet.imageresizer": "^0.1.1",
     "ionic": "^4.1.1",
     "ionic-angular": "3.9.2",
     "ionic-img-viewer": "^2.9.0",
@@ -64,7 +66,8 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-telerik-imagepicker": {
         "PHOTO_LIBRARY_USAGE_DESCRIPTION": "your usage message"
-      }
+      },
+      "info.protonet.imageresizer": {}
     },
     "platforms": [
       "browser",

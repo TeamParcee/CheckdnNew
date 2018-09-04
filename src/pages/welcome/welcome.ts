@@ -101,6 +101,8 @@ export class WelcomePage {
     return new Promise(async (resolve) => {
       let checkdnPlaces = await this.location.getDistanceMatrix(this.allPlaces);
       return resolve(checkdnPlaces);
+
+      
     })
   }
 
