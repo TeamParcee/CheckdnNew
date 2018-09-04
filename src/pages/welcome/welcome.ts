@@ -35,7 +35,7 @@ export class WelcomePage {
 
   async ionViewDidLoad() {
     this.allPlaces = await this.fs.getCollection("checkPlaces");
-    this.checkdnPlaces = await this.getCheckdnPlaces();
+    
 
     firebase.auth().onAuthStateChanged(async (user_auth) => {
       this.loading.show();
@@ -97,13 +97,8 @@ export class WelcomePage {
   //   })
   // }
 
-  async getCheckdnPlaces() {
-    return new Promise(async (resolve) => {
-      let checkdnPlaces = await this.location.getDistanceMatrix(this.allPlaces);
-      return resolve(checkdnPlaces);
-
-      
-    })
-  }
-
+ 
+createAccount(){
+  this.navCtrl.push("CreateAccountPage", {checkdnPlaces: this.checkdnPlaces})
+}
 }
