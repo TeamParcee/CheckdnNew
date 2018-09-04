@@ -13,6 +13,7 @@ export class ImageResizerProvider {
 
   
   resize(uri){
+    console.log("made it here")
     let options = {
       uri: uri,
       quality: 100,

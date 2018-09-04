@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the TabsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import * as firebase from 'firebase';
+import 'firebase/firestore';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -15,11 +11,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TabsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    private ls: Storage,
+    public navCtrl: NavController, 
+    public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TabsPage');
+  newCount;
+  user;
+  async ionViewDidLoad() {
+    this.user = await this.ls.get("user");
+    this.getMessages()
   }
 
+
+  getMessages(){
+    let userRef =  "messageboxes/" + this.user.uid + "/recipients/";
+     firebase.firestore().collection(userRef)
+     .where("new", "==", true)
+      .onSnapshot((messageSnap)=>{
+        this.newCount = messageSnap.size
+     })
+     
+   }
 }

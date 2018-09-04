@@ -17,11 +17,17 @@
 </ion-header>
 
 <ion-content>
-  <ion-row>
-    <ion-col (click)="viewProfilePage(user)" *ngFor="let user of users" col-4>
-        <img src="{{user.photoURL}}">
-        <p text-center>{{user.displayName}}</p>
-    </ion-col>
-  </ion-row>
+  <div class="contentarea">
+      <ion-row>
+          <ion-col (click)="viewProfilePage(user)" *ngFor="let user of users" col-4>
+            <div  style="width: 115px">
+                <img height="115" width="115" src="{{user.photoURL}}">
+                <p text-center>{{user.displayName}}</p>
+            </div>
+              
+          </ion-col>
+        </ion-row>
+  </div>
+ 
 
 </ion-content>

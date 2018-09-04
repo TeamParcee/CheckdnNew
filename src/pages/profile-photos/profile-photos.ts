@@ -46,6 +46,7 @@ export class ProfilePhotosPage {
     })
   }
   getPictures(event){
+    console.log("made it here 1:");
     let uploadedPics = event.target.files;
     let pics = [];
     let imageFiles = [];

@@ -36,13 +36,16 @@ export class LocationProvider {
     })
   }
 
-  async getDistanceMatrix(checkdnPlaces){
+  async getDistanceMatrix(checkdnPlaces2){
     let userLocation:any = await this.getCurrentLocation();
     let userLatLng = await new google.maps.LatLng(userLocation.lat, userLocation.lng)
     let origins = []
     let placesLocation = [];
 
 
+    let checkdnPlaces:any = await this.getObjsClose();
+    var half_length = Math.ceil(checkdnPlaces.length / 2);    
+    checkdnPlaces = checkdnPlaces.splice(0,half_length);
 
   checkdnPlaces.forEach(async (place)=>{
       placesLocation.push(place.address);
@@ -74,7 +77,6 @@ export class LocationProvider {
           if(distance.value < 150){
             
             let place = {
-
               name:  checkdnPlaces[i].name,
               address: checkdnPlaces[i].address,
               placeid: checkdnPlaces[i].placeid,
@@ -94,8 +96,33 @@ export class LocationProvider {
   
   }
 
-  getClosePlaces(){
-
+  async getObjsClose(){
+    let currentLocation = await this.getCurrentLocation();
+    let map = new google.maps.Map(document.getElementById('map'), {
+      center: currentLocation,
+      zoom: 20
+    });
+  
+    let service =   new google.maps.places.PlacesService(map);
+    return new Promise((res)=>{
+      service.nearbySearch({
+        location: currentLocation,
+        // radius: '10',
+        rankBy: google.maps.places.RankBy.DISTANCE,
+        type: 'school',
+      }, (response:any[])=>{
+        let objs = [];
+        response.forEach((obj)=>{
+          let o = {
+            name: obj.name,
+            address: obj.vicinity,
+            placeid: obj.place_id,
+          }
+          objs.push(o);
+        })
+        return res(objs);
+      })
+    })
   }
  
   defaultCheckdn =   {

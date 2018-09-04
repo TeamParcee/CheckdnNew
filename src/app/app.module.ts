@@ -21,6 +21,8 @@ import { Facebook } from '@ionic-native/facebook';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { ImageResizerProvider } from '../providers/image-resizer/image-resizer';
 import { ImageResizer } from '@ionic-native/image-resizer';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 
 
   // Initialize Firebase
@@ -37,6 +39,7 @@ import { ImageResizer } from '@ionic-native/image-resizer';
 @NgModule({
   declarations: [
     MyApp,
+
     
 
   ],
@@ -51,6 +54,7 @@ import { ImageResizer } from '@ionic-native/image-resizer';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+
   ],
   providers: [
     StatusBar,
@@ -67,6 +71,7 @@ import { ImageResizer } from '@ionic-native/image-resizer';
     Facebook,
     ImageResizer,
     ImageResizerProvider,
+    InAppBrowser
   ]
 })
 export class AppModule {}

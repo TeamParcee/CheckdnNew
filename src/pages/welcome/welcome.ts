@@ -19,7 +19,7 @@ export class WelcomePage {
 
   constructor(
     // private fb: Facebook,
-    // private loading: LoadingProvider,
+    private loading: LoadingProvider,
     private location: LocationProvider,
     private ls: Storage,
     private fs: FirestoreProvider,
@@ -34,25 +34,25 @@ export class WelcomePage {
   checkdnPlaces;
 
   async ionViewDidLoad() {
-    // this.loading.show();
     this.allPlaces = await this.fs.getCollection("checkPlaces");
     this.checkdnPlaces = await this.getCheckdnPlaces();
 
     firebase.auth().onAuthStateChanged(async (user_auth) => {
+      this.loading.show();
       if (user_auth) {
         let user: any = await this.getFireStoreUser(user_auth);
         this.ls.set("user", user);
+        this.loading.hide();
         if (!user.displayName || !user.email || !user.gender || !user.relationship || !user.photoURL) {
-          // this.loading.hide();
           this.navCtrl.setRoot("CompleteProfilePage")
         }
         else {
-          // this.loading.hide();
           this.navCtrl.setRoot("TabsPage")
         }
+      } else {
+        this.loading.hide()
       }
     })
-    // this.loading.hide()
   }
 
 

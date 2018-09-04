@@ -15,26 +15,29 @@
   </ion-header>
   
   <ion-content padding >
+    <div class="contentarea">
+        <ion-list no-lines [virtualScroll]="messages" [headerFn]="messagesHeaderFn">
+
+            <p style="font-weight: lighter" *virtualHeader="let header">
+             {{ header }}
+           </p> 
+         
+             <ion-item *virtualItem="let message">
+               <p [attr.text-center]="message.user.uid == user.uid ? '' : null">
+                 <span  class="{{getCss(message)}}" >{{message?.text}}</span>
+                 </p>
+             </ion-item>
+         
+           
+         </ion-list>
+    </div>
     <!-- <ion-list no-lines>
       <ion-item class="{{getOwner(message)}}" *ngFor="let message of messages">
           <span class="{{getCss(message)}}">{{message?.text}}</span>
           <p>{{message?.timestamp | FromNow}}</p>
       </ion-item>
     </ion-list> -->
-    <ion-list no-lines [virtualScroll]="messages" [headerFn]="messagesHeaderFn">
-
-         <p style="font-weight: lighter" *virtualHeader="let header">
-          {{ header }}
-        </p> 
-      
-          <ion-item  *virtualItem="let message">
-              <span  class="{{getOwner(message)}}">
-              <span class="{{getCss(message)}}" >{{message?.text}}</span>
-            </span>
-          </ion-item>
-      
-        
-      </ion-list>
+   
   
   </ion-content>
 

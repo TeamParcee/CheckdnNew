@@ -52,21 +52,21 @@
     </ion-item-group>
     <ion-item-group>
       <ion-item-divider>Social</ion-item-divider>
-      <ion-item *ngIf="profileUser.facebook">
+      <button (click)="showIAB('https://www.facebook.com/' + profileUser.facebook)" ion-item *ngIf="profileUser.facebook">
         Facebook <span class="profile-item">{{profileUser.facebook}}</span>
-      </ion-item>
-      <ion-item *ngIf="profileUser.instagram">
+      </button>
+      <button (click)="showIAB('https://www.instagram.com/' + profileUser.instagram)" ion-item *ngIf="profileUser.instagram">
         Instagram <span class="profile-item">{{profileUser.instagram}}</span>
-      </ion-item>
-      <ion-item *ngIf="profileUser.snapchat">
+      </button>
+      <button (click)="showIAB('https://www.snapchat.com/add/' + profileUser.snapchat)" ion-item *ngIf="profileUser.snapchat">
         Snapchat <span class="profile-item">{{profileUser.snapchat}}</span>
-      </ion-item>
-      <ion-item *ngIf="profileUser.twitter">
+      </button>
+      <button ion-item (click)="showIAB('https://www.twitter.com/' + profileUser.twitter)" *ngIf="profileUser.twitter">
         Twitter <span class="profile-item">{{profileUser.twitter}}</span>
-      </ion-item>
-      <ion-item *ngIf="profileUser.linkedin">
+      </button>
+      <button ion-item (click)="showIAB('https://www.linkedin.com/in/' + profileUser.linkedin)" *ngIf="profileUser.linkedin">
         Linkedin <span class="profile-item">{{profileUser.linkedin}}</span>
-      </ion-item>
+      </button>
     </ion-item-group>
   </div>
 </ion-content>

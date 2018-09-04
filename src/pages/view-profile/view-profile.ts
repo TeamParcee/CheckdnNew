@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
 import * as firebase from 'firebase';
 import 'firebase/firestore';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 @IonicPage()
 @Component({
@@ -12,6 +13,7 @@ import 'firebase/firestore';
 export class ViewProfilePage {
 
   constructor(
+    private iab: InAppBrowser,
     private fs: FirestoreProvider,
     public navCtrl: NavController, 
     public navParams: NavParams) {
@@ -45,5 +47,13 @@ export class ViewProfilePage {
   }
   viewImagesPage(){
     this.navCtrl.push('ViewImagesPage', {user: this.profileUser});
+  }
+  showIAB(url){
+    let options: InAppBrowserOptions = {
+      location: "yes",
+      toolbar: "yes",
+    }
+    let browser = this.iab.create(url, '_self', options);
+    browser.show();
   }
 }
