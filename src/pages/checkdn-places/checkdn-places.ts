@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { Storage } from '../../../node_modules/@ionic/storage';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
 
@@ -12,6 +12,7 @@ import { FirestoreProvider } from '../../providers/firestore/firestore';
 export class CheckdnPlacesPage {
 
   constructor(
+    private modal: ModalController,
     private fs: FirestoreProvider,
     private alert: AlertController,
     private ls: Storage,
@@ -22,6 +23,7 @@ export class CheckdnPlacesPage {
   places;
   user;
   checkdn;
+  
   async ionViewDidLoad() {
     this.user = await this.ls.get('user');
     this.places = this.user.checkdnPlaces;
@@ -47,5 +49,9 @@ export class CheckdnPlacesPage {
         }
       }]
     }).present()
+  }
+
+  addCheckdn(){
+    this.modal.create("CreateCheckdnPage").present()
   }
 }

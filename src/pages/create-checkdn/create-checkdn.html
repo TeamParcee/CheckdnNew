@@ -1,18 +1,37 @@
-<!--
-  Generated template for the CreateCheckdnPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>CreateCheckdn</ion-title>
+    <ion-buttons start>
+      <button navPop clear ion-button>
+        Close
+      </button>
+    </ion-buttons>
+    <ion-title>Create Checkdn</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input [(ngModel)]="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Unique PlaceID</ion-label>
+      <ion-input [(ngModel)]="placeid"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Current Location</ion-label>
+      <ion-toggle [(ngModel)]="currentLocation"  checked="true"></ion-toggle>
+    </ion-item>
+    <ion-item *ngIf="!currentLocation">
+      <ion-label>Address</ion-label>
+      <ion-input [(ngModel)]="address"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button (click)="add()" tappable block ion-button [disabled]="!name || !placeid" > Add Checkdn Place</button>
+  </div>
 </ion-content>

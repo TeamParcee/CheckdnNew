@@ -120,5 +120,22 @@ export class LocationProvider {
       address: "Checkdn HQ", 
       placeid: "777"
     }
-  
+
+
+     
+
+     geocodeAddress(address) {
+      var geocoder = new google.maps.Geocoder();
+      return new Promise((resolve)=>{
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+           return resolve(results[0].geometry.location)
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      })
+      
+            
+    }
 }
